@@ -215,24 +215,28 @@ function stageThree(){
 
 let dodges=0;
 
-function dodge(){
- if(dodges>=5)return;
 
- const btn=document.getElementById("dodgeBtn");
- const area=btn.parentElement;
- const maxX=Math.max(0,area.clientWidth-150);
- const maxY=45;
+let dodges = 0;
 
- btn.style.left=Math.random()*maxX+"px";
- btn.style.top=Math.random()*maxY+"px";
- btn.style.transform="none";
+function dodge() {
+  if (dodges >= 20) return;
 
- dodges++;
+  const btn = document.getElementById("dodgeBtn");
+  const area = btn.parentElement;
 
- document.getElementById("dodgeText").textContent=
- dodges<5
- ? "HAHAHA TOO SLOW BABY 😭💀"
- : "OKAY OKAY I'LL STOP RUNNING 😂";
+  const maxX = Math.max(0, area.clientWidth - 150);
+  const maxY = 45;
+
+  btn.style.left = Math.random() * maxX + "px";
+  btn.style.top = Math.random() * maxY + "px";
+  btn.style.transform = "none";
+
+  dodges++;
+
+  document.getElementById("dodgeText").textContent =
+    dodges < 20
+      ? "HAHAHA TOO SLOW BABY 😭💀 " + dodges + "/20"
+      : "OKAY OKAY I'LL STOP RUNNING 😂";
 }
 
 function finalMessage(){
