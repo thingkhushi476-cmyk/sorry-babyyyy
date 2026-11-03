@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Baby, I'm Sorry ❤️</title>
+<title>Baby, Please Forgive Me ❤️</title>
 
 <style>
 *{box-sizing:border-box}
@@ -15,49 +15,57 @@ body{
  overflow-x:hidden;
 }
 .card{
- max-width:490px;width:100%;padding:35px 24px;
- background:#1c1821;border:1px solid #443044;
+ max-width:490px;width:100%;padding:32px 22px;
+ background:#1c1821;border:1px solid #493448;
  border-radius:25px;box-shadow:0 15px 60px #0008;
- animation:appear 1s ease;
+ animation:appear .8s ease;
 }
 @keyframes appear{
- from{opacity:0;transform:translateY(25px)}
+ from{opacity:0;transform:translateY(20px)}
  to{opacity:1;transform:translateY(0)}
 }
-.tag{color:#ff79aa;font-size:11px;letter-spacing:4px}
-h1{font-size:35px}
+.tag{color:#ff79aa;font-size:11px;letter-spacing:3px}
+h1{font-size:34px}
 h1 span{color:#ff79aa}
-p{color:#c8bdca;line-height:1.8}
-.box{
- background:#29212e;border-radius:16px;padding:20px;
- margin:25px 0;text-align:left;line-height:2;
+p{color:#d0c4d2;line-height:1.8}
+.box,.panel{
+ background:#29212e;border-radius:16px;
+ padding:20px;margin:22px 0;
 }
 button{
- padding:14px 20px;border:0;border-radius:30px;
- font-size:15px;font-weight:bold;cursor:pointer;margin:7px;
- transition:.25s;
+ padding:14px 19px;border:0;border-radius:30px;
+ font-size:15px;font-weight:bold;cursor:pointer;
+ margin:7px;transition:transform .2s;
 }
-button:hover{transform:scale(1.07)}
-.yes{background:#ff79aa;color:#24121b}
+button:hover{transform:scale(1.06)}
+.yes{background:#ff79aa;color:#25131c}
 .no{background:#39323f;color:white}
-#answer{color:#ff9fc0;font-size:18px;margin-top:20px}
 .hidden{display:none!important}
-.panel{
- background:#302432;padding:22px;border-radius:18px;
- margin-top:22px;animation:appear .7s ease;
+#answer{color:#ff9fc0;font-size:18px;margin-top:18px}
+.panel{animation:appear .6s ease}
+.dodge-area{
+ position:relative;height:100px;margin:20px 0;
+ overflow:visible;
 }
-#letter{
- background:#39253a;padding:22px;border-radius:18px;
- margin-top:22px;line-height:1.9;
+#dodgeBtn{
+ position:absolute;left:50%;top:15px;
+ transform:translateX(-50%);
+ white-space:nowrap;
 }
 .heart{
- position:fixed;top:-30px;animation:fall 4s linear forwards;
+ position:fixed;top:-30px;
+ animation:fall 4s linear forwards;
  pointer-events:none;
 }
 @keyframes fall{
  to{transform:translateY(110vh) rotate(360deg);opacity:0}
 }
-.small{font-size:11px;color:#887b8c;margin-top:30px}
+#letter{
+ background:#39253a;padding:20px;border-radius:18px;
+ margin-top:20px;line-height:1.8;
+ animation:appear .8s ease;
+}
+.small{font-size:11px;color:#887b8c;margin-top:25px}
 </style>
 </head>
 
@@ -71,7 +79,7 @@ button:hover{transform:scale(1.07)}
 <p>I've been accused of being annoying. 💀</p>
 
 <div class="box">
-<b>OFFICIAL CRIMINAL RECORD</b><br>
+<b>OFFICIAL CRIMINAL RECORD</b><br><br>
 Charge 01: Excessive teasing.<br>
 Charge 02: Annoying you for fun.<br>
 Charge 03: Being obsessed with you.<br>
@@ -88,63 +96,90 @@ You're genuinely special to me.
 
 <h3>What's your verdict?</h3>
 
-<button class="yes" onclick="forgive()">
-Forgive this idiot ❤️
-</button>
+<button class="yes" onclick="forgive()">Forgive this idiot ❤️</button>
+<button class="no" onclick="stageOne()">Still mad 😤</button>
 
-<button class="no" onclick="stillMad()">
-Still mad 😤
-</button>
-
-<div id="convince" class="panel hidden">
-<h2> BABY PLEASEEE 😭</h2>
-
+<!-- STAGE 1 -->
+<div id="stage1" class="panel hidden">
+<h2>BABY PLEASEEE 😭</h2>
 <p>
 Even my lawyer says I'm guilty.
 He literally resigned. 💀
 </p>
-
 <p>
-Okay, jokes aside...
-I never want to be the reason you feel sad.
-I love making you smile, not making you upset.
-I'll try to be more thoughtful with my teasing.
+Jokes aside, I never want to hurt your feelings.
+Can I have another chance?
 </p>
+<button class="yes" onclick="forgive()">Okay, fine ❤️</button>
+<button class="no" onclick="stageTwo()">STILL MAD 😤</button>
+</div>
 
-<h3>Can I have another chance? 🥺</h3>
+<!-- STAGE 2 -->
+<div id="stage2" class="panel hidden">
+<h2>WAIT WAIT WAIT 😭</h2>
+<p>
+I've prepared another apology.
+My last two brain cells worked very hard on it.
+</p>
+<p>
+I promise I'll try to be more thoughtful
+and not take your feelings for granted.
+</p>
+<button class="yes" onclick="forgive()">I forgive you 💗</button>
+<button class="no" onclick="stageThree()">STILL MAD AGAIN 💀</button>
+</div>
 
-<button class="yes" onclick="forgive()">
-Okay, I forgive you 💗
-</button>
+<!-- STAGE 3 -->
+<div id="stage3" class="panel hidden">
+<h2>THE FINAL APOLOGY 😭</h2>
+<p>
+BABY HOW MANY APOLOGIES DO I NEED?! 💀
+</p>
+<p>
+Okay, seriously. You matter to me.
+You don't have to forgive me right now.
+I just want you to know I'm sorry.
+</p>
+<button class="yes" onclick="forgive()">Come here, idiot ❤️</button>
 
-<button class="no" onclick="stillMadAgain()">
-Still mad, idiot 😭
+<p>Or try clicking this button... 👀</p>
+
+<div class="dodge-area">
+<button class="no" id="dodgeBtn"
+onpointerenter="dodge()"
+onclick="finalMessage()">
+STILL MAD 😤
 </button>
 </div>
 
-<div id="second" class="panel hidden">
-<h2>😭 MY LAST TWO BRAIN CELLS</h2>
-<p>
-I understand, Baby. Take your time.
-No pressure. I'll still be here when you're ready. ❤️
-</p>
-<button class="yes" onclick="forgive()">
-Okay, come here ❤️
-</button>
+<p id="dodgeText"></p>
 </div>
 
+<!-- FINAL MESSAGE -->
+<div id="final" class="panel hidden">
+<h2>OKAY BABY 😭❤️</h2>
+<p>
+You win. I surrender. 🏳️
+No more escaping buttons.
+Take all the time you need.
+I'll be here when you're ready.
+</p>
+<button class="yes" onclick="forgive()">Send you a virtual hug ❤️</button>
+</div>
+
+<!-- LOVE LETTER -->
 <div id="letter" class="hidden">
 <h2>💌 A LETTER FOR MY BABY</h2>
 <p>
 Jokes aside, I'm genuinely sorry if I upset you.
 </p>
 <p>
-You mean so much to me, and I don't ever
-want my silly teasing to make you feel bad.
+I love making you laugh, not making you sad.
+I'll try to be more thoughtful with my teasing.
 </p>
 <p>
-I'll try to listen better and be more careful.
 You deserve love, respect and happiness.
+And I hope I can keep giving you all three.
 </p>
 <h2>I LOVE YOU, BABY. ❤️</h2>
 </div>
@@ -154,13 +189,60 @@ You deserve love, respect and happiness.
 <div class="small">
 MADE WITH LOVE & QUESTIONABLE BOYFRIEND BEHAVIOUR.
 </div>
-
 </div>
 
 <script>
+function hideStages(){
+ ["stage1","stage2","stage3","final"].forEach(id=>{
+  document.getElementById(id).classList.add("hidden");
+ });
+}
+
+function stageOne(){
+ hideStages();
+ document.getElementById("stage1").classList.remove("hidden");
+}
+
+function stageTwo(){
+ hideStages();
+ document.getElementById("stage2").classList.remove("hidden");
+}
+
+function stageThree(){
+ hideStages();
+ document.getElementById("stage3").classList.remove("hidden");
+}
+
+let dodges=0;
+
+function dodge(){
+ if(dodges>=5)return;
+
+ const btn=document.getElementById("dodgeBtn");
+ const area=btn.parentElement;
+ const maxX=Math.max(0,area.clientWidth-150);
+ const maxY=45;
+
+ btn.style.left=Math.random()*maxX+"px";
+ btn.style.top=Math.random()*maxY+"px";
+ btn.style.transform="none";
+
+ dodges++;
+
+ document.getElementById("dodgeText").textContent=
+ dodges<5
+ ? "HAHAHA TOO SLOW BABY 😭💀"
+ : "OKAY OKAY I'LL STOP RUNNING 😂";
+}
+
+function finalMessage(){
+ hideStages();
+ document.getElementById("final").classList.remove("hidden");
+}
+
 function hearts(){
  const emojis=["❤️","💕","💗","✨","💖"];
- for(let i=0;i<30;i++){
+ for(let i=0;i<35;i++){
   let h=document.createElement("div");
   h.className="heart";
   h.textContent=emojis[Math.floor(Math.random()*emojis.length)];
@@ -172,25 +254,12 @@ function hearts(){
 }
 
 function forgive(){
- document.getElementById("convince").classList.add("hidden");
- document.getElementById("second").classList.add("hidden");
+ hideStages();
  document.getElementById("letter").classList.remove("hidden");
  document.getElementById("answer").textContent=
- "YAYYY! THANK YOU BABY! ❤️";
+ "YAYYYYY! THANK YOU BABY! ❤️";
  hearts();
 }
-
-function stillMad(){
- document.getElementById("convince").classList.remove("hidden");
- document.getElementById("answer").textContent="";
- document.getElementById("convince").scrollIntoView({behavior:"smooth"});
-}
-
-function stillMadAgain(){
- document.getElementById("second").classList.remove("hidden");
- document.getElementById("second").scrollIntoView({behavior:"smooth"});
-}
 </script>
-
 </body>
 </html>
