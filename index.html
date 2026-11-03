@@ -224,8 +224,8 @@ function dodge() {
   const btn = document.getElementById("dodgeBtn");
   const area = btn.parentElement;
 
-  const maxX = Math.max(0, area.clientWidth - 150);
-  const maxY = 45;
+  const maxX = Math.max(0, area.clientWidth - btn.offsetWidth);
+  const maxY = Math.max(0, area.clientHeight - btn.offsetHeight);
 
   btn.style.left = Math.random() * maxX + "px";
   btn.style.top = Math.random() * maxY + "px";
